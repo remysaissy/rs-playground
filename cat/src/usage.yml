@@ -1,0 +1,12 @@
+name: rs-cat
+version: "1.0"
+author: Rémy Saissy <remy.saissy@gmail.com>
+about: Rust implementation of cat.
+args:
+  - FILE:
+      help: Concatenate FILE(s) to standard output.
+      multiple: true
+  - show_ends:
+      short: e
+      long: show-ends
+      help: display $ at end of each line
