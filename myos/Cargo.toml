@@ -1,0 +1,25 @@
+[package]
+name = "myos"
+version = "0.1.0"
+authors = ["Rémy Saissy <remy.saissy@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[test]]
+name = "stack_overflow"
+harness = false
+
+[dependencies]
+rlibc = "1.0.0"
+bootloader = "0.9.8"
+volatile = "0.3.0"
+spin = "0.5.2"
+lazy_static = {version = "1.4.0", features = ["spin_no_std"]}
+x86_64 = "0.11.1"
+uart_16550 = "0.2.7"
+
+[package.metadata.bootimage]
+test-args = ["-device", "isa-debug-exit,iobase=0xf4,iosize=0x04", "-serial", "stdio", "-display", "none"]
+test-success-exit-code = 33         # (0x10 << 1) | 1
+test-timeout = 300          # (in seconds)

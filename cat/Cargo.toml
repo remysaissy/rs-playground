@@ -8,5 +8,8 @@ edition = "2018"
 [[bin]]
 name = "cat"
 
+[profile.release]
+panic = "abort"
+
 [dependencies]
 clap = {version = "~2.33", features = ["yaml"] }
